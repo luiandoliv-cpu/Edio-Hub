@@ -1,7 +1,8 @@
 import sqlite3
 import time
 from datetime import datetime
-from tables import conexao
+from serv.tables import conexao
+from serv.utils import limpar_tela
 
 def criar_temporizador(user_id, nome, estudo, pausa):
     nome = nome.strip()
@@ -49,15 +50,21 @@ def contagem_interrompivel(minutos):
         while total_segundos:
             mins = total_segundos // 60
             segs = total_segundos % 60
-            print(f"\r⏱️ {mins:02d}:{segs:02d}", end="")
+            print(f"\r{mins:02d}:{segs:02d}", end="")
             time.sleep(1)
             total_segundos -= 1
 
+        time.sleep(1)
+        limpar_tela()
         print("\nTempo finalizado!")
+        time.sleep(1)
+        limpar_tela()
         return True
 
     except KeyboardInterrupt:
-        print("\n⛔ Encerrado pelo usuário!")
+        time.sleep(1)
+        limpar_tela()
+        print("\n Encerrado pelo usuário!")
         return False
     
 def iniciar_temporizador(user_id, timer_id):
@@ -74,17 +81,19 @@ def iniciar_temporizador(user_id, timer_id):
     if not timer:
         conn.close()
         return False, "Temporizador não encontrado."
+        time.sleep(1)
+        limpar_tela()
 
     estudo, pausa = timer
     total_estudado = 0
 
-    print("\n🚀 Temporizador iniciado!")
+    print("\n Temporizador iniciado!")
     print("CTRL+C para encerrar a qualquer momento.")
 
     try:
         while True:
             # estudo
-            print("\n📚 Estudando...")
+            print("\n Estudando...")
             terminou = contagem_interrompivel(estudo)
 
             if not terminou:
@@ -94,7 +103,7 @@ def iniciar_temporizador(user_id, timer_id):
 
             # pausa
             if pausa > 0:
-                print("\n☕ Pausa...")
+                print("\n Hora de fazer uma pausa...")
                 terminou = contagem_interrompivel(pausa)
                 if not terminou:
                     break

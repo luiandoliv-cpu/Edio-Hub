@@ -1,5 +1,5 @@
 import sqlite3
-from tables import conexao
+from serv.tables import conexao
 
 def criar_tarefa(user_id, descricao):
     descricao = descricao.strip()

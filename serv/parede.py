@@ -1,5 +1,5 @@
 import sqlite3
-from tables import conexao
+from serv.tables import conexao
 
 def criar_anexo(user_id):
     titulo = input("Título do lembrete: ").strip()

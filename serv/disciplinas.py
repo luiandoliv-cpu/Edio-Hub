@@ -1,5 +1,5 @@
 import sqlite3
-from tables import conexao
+from serv.tables import conexao
 
 def listar_disciplinas(user_id):
     conn = conexao()

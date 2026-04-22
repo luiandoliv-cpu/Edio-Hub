@@ -1,11 +1,11 @@
-from auth import registrar_usuario, login_usuario
-from menuprincip import menu_principal
+from serv.auth import registrar_usuario, login_usuario
+from screens.menuprincip import menu_principal
 import time
-from utils import limpar_tela
+from serv.utils import limpar_tela
 
 def tela_inicial():
     while True:
-        print("\n===== BEM VINDO =====")
+        print("\n===== Bem-vindo ao EdioHub =====")
         print("1 - Criar conta")
         print("2 - Fazer login")
         print("3 - Sair")
@@ -26,6 +26,7 @@ def tela_inicial():
                 time.sleep(3)
                 limpar_tela()
                 menu_principal(user_id)
+                return True
 
         # LOGIN
         elif op == "2":
@@ -41,6 +42,7 @@ def tela_inicial():
                 time.sleep(3)
                 limpar_tela()
                 menu_principal(user_id)
+                return True
 
         elif op == "3":
             print("Até logo!")

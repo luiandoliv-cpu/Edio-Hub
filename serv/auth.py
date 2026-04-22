@@ -1,7 +1,7 @@
 import bcrypt
 import re
 import sqlite3
-from tables import conexao
+from serv.tables import conexao
 
 def conexao():
     return sqlite3.connect("accko.db")
@@ -84,5 +84,6 @@ def login_usuario(username, password):
 
     if verificar_senha(password, senha_hash):
         return True, "Login realizado com sucesso!", user_id
+        
     else:
         return False, "Senha incorreta", None
