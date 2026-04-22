@@ -4,6 +4,7 @@ import time
 
 def menu_disciplinas(user_id):
     while True:
+        limpar_tela()
         print("\n===== Disciplinas =====")
         print("1 - Criar disciplina")
         print("2 - Listar disciplinas")
@@ -18,8 +19,11 @@ def menu_disciplinas(user_id):
          nome = input("Nome da disciplina: ")
          sucesso, msg = criar_disciplina(user_id, nome)
          print(msg)
+         time.sleep(2)
+         limpar_tela()
 
         elif op == "2":
+            limpar_tela()
             disciplinas = listar_disciplinas(user_id)
 
             if not disciplinas:
@@ -27,9 +31,12 @@ def menu_disciplinas(user_id):
             else:
                 for d in disciplinas:
                     print(f"{d[0]} - {d[1]}")
+                    time.sleep(12)
+                    limpar_tela()
 
 
         elif op == "3":
+            limpar_tela()
             disciplinas = listar_disciplinas(user_id)
 
             if not disciplinas:
@@ -38,12 +45,17 @@ def menu_disciplinas(user_id):
 
             for d in disciplinas:
                 print(f"{d[0]} - {d[1]}")
-
+            
+            time.sleep(6)
+            limpar_tela()
             did = input("ID da disciplina: ")
             novo_nome = input("Novo nome: ")
             print(editar_disciplina(user_id, did, novo_nome)[1])
+            time.sleep(3)
+            limpar_tela()
 
         elif op == "4":
+            limpar_tela()
             disciplinas = listar_disciplinas(user_id)
 
             if not disciplinas:
@@ -53,9 +65,13 @@ def menu_disciplinas(user_id):
             for d in disciplinas:
                 print(f"{d[0]} - {d[1]}")
 
+            time.sleep(6)
+            limpar_tela()
             did = input("ID da disciplina: ")
             sucesso, msg = excluir_disciplina(user_id, did)
             print(msg)
+            time.sleep(3)
+            limpar_tela()
 
         elif op == "0":
             limpar_tela()

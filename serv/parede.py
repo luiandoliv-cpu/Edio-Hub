@@ -22,6 +22,8 @@ def criar_anexo(user_id):
     conn.close()
 
     return True, "Lembrete criado com sucesso!"
+    
+    
 
 def listar_anexos(user_id):
     conn = conexao()
@@ -36,6 +38,7 @@ def listar_anexos(user_id):
     anexos = cursor.fetchall()
     conn.close()
     return anexos
+    
 
 def excluir_anexo(user_id):
     anexos = listar_anexos(user_id)
