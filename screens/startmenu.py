@@ -7,7 +7,7 @@ def tela_inicial():
     while True:
         print("\n===== Bem-vindo ao EdioHub =====")
         print("1 - Criar conta")
-        print("2 - Fazer login")
+        print("2 - Entrar")
         print("3 - Sair")
 
         op = input("Escolha: ")
