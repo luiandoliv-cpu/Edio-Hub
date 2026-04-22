@@ -4,6 +4,7 @@ import time
 
 def menu_mural(user_id):
     while True:
+        limpar_tela()
         print("\n===== Lembretes =====")
         print("1 - Criar lembrete")
         print("2 - Acessar mural")
@@ -33,7 +34,7 @@ def menu_mural(user_id):
                 Mensagem: {a[2]}
                     ---------------------""")
             input("\nPressione ENTER para voltar...")
-            limpar_tela()   # ← REMOVER ESTA LINHA
+            limpar_tela()   
    
         elif op == "3":
             limpar_tela()
