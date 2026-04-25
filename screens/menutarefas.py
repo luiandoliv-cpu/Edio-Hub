@@ -26,7 +26,7 @@ def menu_todo(user_id):
             limpar_tela()
             tarefas = listar_tarefas(user_id)
             mostrar_tarefas(tarefas)
-            time.sleep(12)
+            input("\nPressione ENTER para voltar...")   
             limpar_tela()
 
 

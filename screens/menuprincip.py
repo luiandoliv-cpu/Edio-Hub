@@ -3,6 +3,7 @@ from screens.menudiscip import menu_disciplinas
 from screens.menutarefas import menu_todo
 from screens.menutempo import menu_temporizadores
 from screens.menuanex import menu_mural
+from screens.menuestat import menu_estatisticas
 import time
 
 def menu_principal(user_id):
@@ -26,7 +27,7 @@ def menu_principal(user_id):
             menu_todo(user_id)
 
         elif op == "4":
-            menu_mural(user_id)
+            menu_estatisticas(user_id)
 
         elif op == "0":
             print("Logout realizado.")

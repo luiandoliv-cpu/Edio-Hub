@@ -1,27 +1,32 @@
 import sqlite3
 import time
-from datetime import datetime
+from datetime import datetime, date
 from serv.tables import conexao
 from serv.utils import limpar_tela
 
-def criar_temporizador(user_id, nome, estudo, pausa):
+def criar_temporizador(user_id, nome, discip_id, estudo, pausa):
     nome = nome.strip()
 
     if len(nome) < 1:
         return False, "Nome precisa ter ao menos 1 caractere."
 
-    if not estudo.isdigit() or int(estudo) <= 0:
+    try:
+        estudo = int(estudo)
+    except:
         return False, "Tempo de estudo inválido."
 
-    pausa = int(pausa) if pausa.isdigit() else 0
+    try:
+        pausa = int(pausa)
+    except:
+        pausa = 0
 
     conn = conexao()
     cursor = conn.cursor()
 
     cursor.execute("""
-        INSERT INTO temporizadores (user_id, nome, tempo_estudo, tempo_pausa)
-        VALUES (?, ?, ?, ?)
-    """, (user_id, nome, int(estudo), pausa))
+        INSERT INTO temporizadores (user_id, nome, discip_id, tempo_estudo, tempo_pausa)
+        VALUES (?, ?, ?, ?, ?)
+    """, (user_id, nome, discip_id, int(estudo), pausa))
 
     conn.commit()
     conn.close()
@@ -78,9 +83,13 @@ def iniciar_temporizador(user_id, timer_id):
 
     timer = cursor.fetchone()
 
+    if timer is None:
+     conn.close()
+     return False, "Temporizador não encontrado."
+
     if not timer:
         conn.close()
-        return False, "Temporizador não encontrado."
+        print("Temporizador não encontrado.")
         time.sleep(1)
         limpar_tela()
 
@@ -113,13 +122,7 @@ def iniciar_temporizador(user_id, timer_id):
 
     # salvar total estudado
     if total_estudado > 0:
-        cursor.execute("""
-            INSERT INTO sessoes (timer_id, tempo_estudado, data)
-            VALUES (?, ?, ?)
-        """, (timer_id, total_estudado,
-              datetime.now().strftime("%d/%m/%Y %H:%M")))
-
-        conn.commit()
+     salvar_sessao(user_id, timer_id, total_estudado)
 
     conn.close()
 
@@ -164,3 +167,25 @@ def excluir_temporizador(user_id, timer_id):
     conn.commit()
     conn.close()
     return True, "Temporizador excluído!"
+
+def listar_disciplinas(user_id):
+    conn = conexao()
+    cur = conn.cursor()
+    cur.execute("SELECT id, nome FROM disciplinas WHERE user_id=?", (user_id,))
+    dados = cur.fetchall()
+    conn.close()
+    return dados
+
+def salvar_sessao(user_id, timer_id, tempo_estudado):
+    conn = conexao()
+    cursor = conn.cursor()
+
+    data_hoje = date.today().isoformat()
+
+    cursor.execute("""
+        INSERT INTO sessoes (timer_id, user_id, tempo_estudado, data)
+        VALUES (?, ?, ?, ?)
+    """, (timer_id, user_id, tempo_estudado, data_hoje))
+
+    conn.commit()
+    conn.close()

@@ -8,5 +8,5 @@ def main():
    user_id = tela_inicial()
 
    if user_id:
-        tela_inicial(user_id)
+        tela_inicial()
 main()

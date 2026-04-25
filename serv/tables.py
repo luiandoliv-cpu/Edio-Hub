@@ -16,8 +16,8 @@ def criar_tabelas():
 
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS disciplinas(
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        user_id INTEGER,
+        discip_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER NOT NULL,
         nome TEXT NOT NULL
     )""")
 
@@ -26,6 +26,7 @@ def criar_tabelas():
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER NOT NULL,
     nome TEXT NOT NULL,
+    discip_id INTEGER NOT NULL,
     tempo_estudo INTEGER NOT NULL,
     tempo_pausa INTEGER DEFAULT 0
 )
@@ -33,6 +34,7 @@ def criar_tabelas():
 
     cursor.execute("""
   CREATE TABLE IF NOT EXISTS sessoes(
+    user_id INTEGER,
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     timer_id INTEGER,
     tempo_estudado INTEGER,
@@ -40,19 +42,19 @@ def criar_tabelas():
     )
    """)
 
+
     cursor.execute("""
   CREATE TABLE IF NOT EXISTS tarefas(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         user_id INTEGER,
         descricao TEXT NOT NULL,
-        disciplina_id INTEGER,
         status TEXT NOT NULL DEFAULT 'Pendente'
     )""")
 
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS anexos(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        user_id INTEGER,
+        user_id INTEGER NOT NULL,
         titulo TEXT NOT NULL,
         mensagem TEXT NOT NULL
     )""")

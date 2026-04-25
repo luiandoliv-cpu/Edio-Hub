@@ -31,7 +31,7 @@ def menu_disciplinas(user_id):
             else:
                 for d in disciplinas:
                     print(f"{d[0]} - {d[1]}")
-                    time.sleep(12)
+                    input("\nPressione ENTER para voltar...")
                     limpar_tela()
 
 

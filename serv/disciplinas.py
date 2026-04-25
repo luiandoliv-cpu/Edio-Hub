@@ -6,7 +6,7 @@ def listar_disciplinas(user_id):
     cursor = conn.cursor()
 
     cursor.execute(
-        "SELECT id, nome FROM disciplinas WHERE user_id = ?",
+        "SELECT discip_id, nome FROM disciplinas WHERE user_id = ?",
         (user_id,)
     )
 
