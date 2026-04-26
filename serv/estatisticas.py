@@ -97,3 +97,29 @@ def streak_estudo(user_id):
         dia -= timedelta(days=1)
 
     return streak
+
+def resumo_boas_vindas(user_id):
+    hoje = tempo_hoje(user_id)
+    streak = streak_estudo(user_id)
+    top = disciplina_top(user_id)
+
+    return hoje, streak, top
+
+def top_3_disciplinas(user_id):
+    conn = conexao()
+    cur = conn.cursor()
+
+    cur.execute("""
+        SELECT d.nome, SUM(s.tempo_estudado) as total
+        FROM sessoes s
+        JOIN temporizadores t ON s.timer_id = t.id
+        JOIN disciplinas d ON t.discip_id = d.discip_id
+        WHERE t.user_id = ?
+        GROUP BY d.nome
+        ORDER BY total DESC
+        LIMIT 3
+    """, (user_id,))
+
+    dados = cur.fetchall()
+    conn.close()
+    return dados

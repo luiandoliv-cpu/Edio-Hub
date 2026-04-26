@@ -58,6 +58,7 @@ def menu_temporizadores(user_id):
             limpar_tela()
 
         elif op == "2":
+            limpar_tela()
             timers = listar_temporizadores(user_id)
             for t in timers:
                 print(f"{t[0]} - {t[1]} | estudo:{t[2]}min pausa:{t[3]}min")

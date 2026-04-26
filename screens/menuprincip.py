@@ -3,13 +3,19 @@ from screens.menudiscip import menu_disciplinas
 from screens.menutarefas import menu_todo
 from screens.menutempo import menu_temporizadores
 from screens.menuanex import menu_mural
-from screens.menuestat import menu_estatisticas
+from screens.menuestat import menu_estatisticas, formatar
 from serv.sessao import limpar_sessao
+from serv.estatisticas import resumo_boas_vindas
 import time
 
 def menu_principal(user_id):
     while True:
-        print("\n===== Menu Principal =====")
+        hoje, streak, top = resumo_boas_vindas(user_id)
+
+        print("\n Bem-vindo!")
+        print(f"Hoje você estudou: {formatar(hoje)}")
+        print(f"Streak: {streak} dias 🔥")
+        print(f"Foco atual: {top or 'Escolha uma disciplina'}")
         print("1 - Disciplinas")
         print("2 - Temporizadores")
         print("3 - To-Do")
@@ -32,6 +38,7 @@ def menu_principal(user_id):
 
         elif op == "0":
             limpar_sessao()
+            limpar_tela()
             print("Logout realizado.")
             time.sleep(2)
             limpar_tela()

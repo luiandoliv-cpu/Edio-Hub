@@ -19,19 +19,26 @@ def menu_estatisticas(user_id):
             limpar_tela()
             total = tempo_total(user_id)
             hoje = tempo_hoje(user_id)
-            top = disciplina_top(user_id)
             streak = streak_estudo(user_id)
             por_disc = tempo_por_disciplina(user_id)
+            ranking = top_3_disciplinas(user_id)
 
             print("\n📊 RESUMO")
             print("Tempo total:", formatar(total))
             print("Hoje:", formatar(hoje))
-            print("Disciplina favorita:", top or "Nenhuma")
             print("Streak:", streak, "dias 🔥")
 
             print("\nTempo por disciplina:")
             for nome, tempo in por_disc:
                 print(f"{nome}: {formatar(tempo)}")
+
+            print("\nDisciplinas mais estudadas:")
+            if not ranking:
+                print("Nenhuma sessão registrada ainda.")
+            else:
+                posicoes = ["🥇", "🥈", "🥉"]
+                for i, (nome, tempo) in enumerate(ranking):
+                    print(f"{posicoes[i]} {nome} — {formatar(tempo)}")
 
             input("\nENTER para voltar")
             limpar_tela()
