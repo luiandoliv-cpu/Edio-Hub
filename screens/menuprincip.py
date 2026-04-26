@@ -4,6 +4,7 @@ from screens.menutarefas import menu_todo
 from screens.menutempo import menu_temporizadores
 from screens.menuanex import menu_mural
 from screens.menuestat import menu_estatisticas
+from serv.sessao import limpar_sessao
 import time
 
 def menu_principal(user_id):
@@ -30,10 +31,11 @@ def menu_principal(user_id):
             menu_estatisticas(user_id)
 
         elif op == "0":
+            limpar_sessao()
             print("Logout realizado.")
-            time.sleep(3)
+            time.sleep(2)
             limpar_tela()
-            break
+            return None
 
         else:
             print("Opção inválida")

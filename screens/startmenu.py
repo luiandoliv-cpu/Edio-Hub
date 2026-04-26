@@ -12,7 +12,6 @@ def tela_inicial():
 
         op = input("Escolha: ")
 
-        # CADASTRO
         if op == "1":
             limpar_tela()
             username = input("Username: ")
@@ -23,12 +22,10 @@ def tela_inicial():
 
             if sucesso:
                 print("Entrando...")
-                time.sleep(3)
+                time.sleep(2)
                 limpar_tela()
-                menu_principal(user_id)
-                return True
+                return user_id   
 
-        # LOGIN
         elif op == "2":
             limpar_tela()
             username = input("Username: ")
@@ -39,18 +36,17 @@ def tela_inicial():
 
             if sucesso:
                 print("Entrando...")
-                time.sleep(3)
+                time.sleep(2)
                 limpar_tela()
-                menu_principal(user_id)
-                return True
+                return user_id  
 
         elif op == "3":
             print("Até logo!")
             time.sleep(1)
             limpar_tela()
-            break
+            return "exit"       
+
         else:
             print("Opção inválida")
             time.sleep(1)
             limpar_tela()
-tela_inicial()

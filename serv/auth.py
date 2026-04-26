@@ -2,6 +2,7 @@ import bcrypt
 import re
 import sqlite3
 from serv.tables import conexao
+from serv.sessao import salvar_sessao
 
 def conexao():
     return sqlite3.connect("accko.db")
@@ -59,6 +60,7 @@ def registrar_usuario(username, password):
         conn.commit()
 
         user_id = cursor.lastrowid
+        salvar_sessao(user_id)
         return True, "Conta criada com sucesso!", user_id
 
     except sqlite3.Error as e:
@@ -83,6 +85,7 @@ def login_usuario(username, password):
     user_id, senha_hash = resultado
 
     if verificar_senha(password, senha_hash):
+        salvar_sessao(user_id)
         return True, "Login realizado com sucesso!", user_id
         
     else:

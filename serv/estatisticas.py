@@ -62,26 +62,38 @@ def streak_estudo(user_id):
     cur = conn.cursor()
 
     cur.execute("""
-        SELECT DISTINCT substr(s.data, 1, 10)
+        SELECT DISTINCT substr(s.data,1,10)
         FROM sessoes s
         JOIN temporizadores t ON s.timer_id = t.id
         WHERE t.user_id = ?
-        ORDER BY substr(s.data, 1, 10) DESC
+        ORDER BY s.data DESC
     """, (user_id,))
 
     datas = [d[0] for d in cur.fetchall()]
     conn.close()
 
+    if not datas:
+        return 0
+
     from datetime import date, timedelta
 
-    streak = 0
-    dia = date.today()
+    hoje = date.today()
+    ontem = hoje - timedelta(days=1)
 
-    for d in datas:
-        if d == dia.isoformat():
-            streak += 1
-            dia -= timedelta(days=1)
-        else:
-            break
+    datas_set = set(datas)
+
+    # streak pode começar hoje OU ontem
+    if hoje.isoformat() in datas_set:
+        dia = hoje
+    elif ontem.isoformat() in datas_set:
+        dia = ontem
+    else:
+        return 0
+
+    streak = 0
+
+    while dia.isoformat() in datas_set:
+        streak += 1
+        dia -= timedelta(days=1)
 
     return streak
