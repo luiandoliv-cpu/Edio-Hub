@@ -1,4 +1,5 @@
 from serv.estatisticas import *
+from serv.utils import limpar_tela
 
 def formatar(minutos):
     h = minutos // 60
@@ -7,6 +8,7 @@ def formatar(minutos):
 
 def menu_estatisticas(user_id):
     while True:
+        limpar_tela()
         print("\n===== ESTATÍSTICAS =====")
         print("1 - Ver resumo geral")
         print("0 - Voltar")
@@ -14,6 +16,7 @@ def menu_estatisticas(user_id):
         op = input("Escolha: ")
 
         if op == "1":
+            limpar_tela()
             total = tempo_total(user_id)
             hoje = tempo_hoje(user_id)
             top = disciplina_top(user_id)
@@ -31,6 +34,7 @@ def menu_estatisticas(user_id):
                 print(f"{nome}: {formatar(tempo)}")
 
             input("\nENTER para voltar")
-
+            limpar_tela()
         elif op == "0":
+            limpar_tela()
             break

@@ -12,7 +12,7 @@ def menu_principal(user_id):
         print("1 - Disciplinas")
         print("2 - Temporizadores")
         print("3 - To-Do")
-        print("4 - Anexos")
+        print("4 - Estatatísticas")
         print("0 - Logout")
     
         op = input("Escolha: ")
