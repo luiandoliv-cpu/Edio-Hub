@@ -4,6 +4,7 @@ from screens.menutarefas import menu_todo
 from screens.menutempo import menu_temporizadores
 from screens.menuanex import menu_mural
 from screens.menuestat import menu_estatisticas, formatar
+from screens.menuconta import tela_conta
 from serv.sessao import limpar_sessao
 from serv.estatisticas import resumo_boas_vindas
 import time
@@ -20,6 +21,7 @@ def menu_principal(user_id):
         print("2 - Temporizadores")
         print("3 - To-Do")
         print("4 - Estatatísticas")
+        print("5 - Gerenciar conta")
         print("0 - Logout")
     
         op = input("Escolha: ")
@@ -36,6 +38,12 @@ def menu_principal(user_id):
         elif op == "4":
             menu_estatisticas(user_id)
 
+        elif op == "5":
+            resultado = tela_conta(user_id)
+
+            if resultado == "logout":
+                return
+            
         elif op == "0":
             limpar_sessao()
             limpar_tela()
