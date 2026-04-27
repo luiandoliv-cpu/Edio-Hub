@@ -72,7 +72,7 @@ def editar_senha(user_id, senha_atual, nova_senha):
     nova_hash = hash_senha(nova_senha)
 
     cur.execute(
-        "UPDATE users SET password=? WHERE id=?",
+        "UPDATE users SET password=? WHERE user_id=?",
         (nova_hash, user_id)
     )
 
