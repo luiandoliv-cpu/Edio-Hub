@@ -60,7 +60,7 @@ def excluir_disciplina(user_id, disciplina_id):
 
     # remove disciplina
     cursor.execute(
-        "DELETE FROM disciplinas WHERE id = ? AND user_id = ?",
+        "DELETE FROM disciplinas WHERE discip_id = ? AND user_id = ?",
         (disciplina_id, user_id)
     )
 

@@ -65,8 +65,7 @@ def menu_disciplinas(user_id):
             for d in disciplinas:
                 print(f"{d[0]} - {d[1]}")
 
-            time.sleep(6)
-            limpar_tela()
+            
             did = input("ID da disciplina: ")
             sucesso, msg = excluir_disciplina(user_id, did)
             print(msg)

@@ -34,7 +34,7 @@ def menu_estatisticas(user_id):
 
             print("\nDisciplinas mais estudadas:")
             if not ranking:
-                print("Nenhuma sessão registrada ainda.")
+                print("Nenhuma disciplina registrada ainda.")
             else:
                 posicoes = ["🥇", "🥈", "🥉"]
                 for i, (nome, tempo) in enumerate(ranking):
