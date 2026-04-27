@@ -1,6 +1,6 @@
 # 🎓 Este é o EdioHub!
 
-Sistema de organização de estudos desenvolvido em Python para a disciplina de **PISI1**.  
+O EdioHub é um sistema de organização de estudos desenvolvido em Python para a disciplina de **PISI1**.  
 O objetivo do projeto é ajudar estudantes a integrar funcionalidades como: gerenciar disciplinas; registrar tempo de estudo; acompanhar estatísticas e organizar tarefas. O foco é incluir todas estas funcionalidades em uma única aplicação para evitar a dispersão de funcionalidades em diferentes serviços e servir como central de estudos e produtividade pessoal.
 
 ---
