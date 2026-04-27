@@ -16,6 +16,7 @@ def tela_conta(user_id):
 
         # EDITAR USERNAME
         if op == "1":
+            limpar_tela()
             novo = input("Novo username: ")
             senha = input("Confirme sua senha: ")
             sucesso, msg = editar_username(user_id, novo, senha)
@@ -24,6 +25,7 @@ def tela_conta(user_id):
 
         # EDITAR SENHA
         elif op == "2":
+            limpar_tela()
             atual = input("Senha atual: ")
             nova = input("Nova senha: ")
             sucesso, msg = editar_senha(user_id, atual, nova)
@@ -32,11 +34,14 @@ def tela_conta(user_id):
 
         # EXCLUIR CONTA
         elif op == "3":
+          limpar_tela()
+          print("ATENÇÃO! A conta não poderá ser recuperada após deletada")
           senha = input("Confirme sua senha: ")
 
           sucesso, msg, logout = excluir_conta(user_id, senha)
           print(msg)
           input("Pressione ENTER...")
+          limpar_tela()
 
           if logout:
            return "logout"
