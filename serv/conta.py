@@ -12,8 +12,8 @@ def validar_username(username):
 
 def validar_senha(senha):
     '''Valida características da nova senha'''
-    if len(senha) < 4 or len(senha) > 12:
-        return False, "Senha deve ter entre 4 e 12 caracteres."
+    if len(senha) < 6 or len(senha) > 18:
+        return False, "Senha deve ter entre 6 e 18 caracteres."
 
     if not re.search(r"[A-Z]", senha):
         return False, "Senha precisa de letra maiúscula."

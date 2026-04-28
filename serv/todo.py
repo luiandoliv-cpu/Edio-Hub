@@ -42,7 +42,7 @@ def concluir_tarefa(user_id, tarefa_id):
     cursor = conn.cursor()
 
     cursor.execute(
-        "DELETE FROM tarefas WHERE id = ? AND user_id = ?",
+        "UPDATE tarefas SET status = 'Concluída' WHERE id = ? AND user_id = ?",
         (tarefa_id, user_id)
     )
 
