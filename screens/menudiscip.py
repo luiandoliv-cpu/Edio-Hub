@@ -41,7 +41,7 @@ def menu_disciplinas(user_id):
             disciplinas = listar_disciplinas(user_id)
 
             if not disciplinas:
-                print("Nenhuma disciplina para editar")
+                print("Nenhuma disciplina para editar...")
                 continue
 
             for d in disciplinas:
