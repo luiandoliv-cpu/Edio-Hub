@@ -1,19 +1,19 @@
 from serv.temporizadores import *
 from serv.disciplinas import listar_disciplinas
-from serv.utils import limpar_tela
+from serv.utils import *
 import time
 
 def menu_temporizadores(user_id):
     '''Define a tela do menu de temporizadores do usuário'''
     while True:
         limpar_tela()
-        print("\n===== Temporizadores =====")
+        print(ciano("\n===== Temporizadores ====="))
         print("1 - Criar temporizador")
         print("2 - Listar temporizadores")
         print("3 - Iniciar temporizador")
         print("4 - Editar temporizador")
         print("5 - Excluir temporizador")
-        print("0 - Voltar")
+        print(vermelho("0 - Voltar"))
 
         op = input("Escolha: ")
 

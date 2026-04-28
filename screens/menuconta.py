@@ -1,5 +1,5 @@
 from serv.conta import *
-from serv.utils import limpar_tela
+from serv.utils import *
 from serv.sessao import limpar_sessao
 import time
 
@@ -7,11 +7,11 @@ def tela_conta(user_id):
     '''Define a tela do menu de configurações de conta do usuário'''
     while True:
         limpar_tela()
-        print("\n===== MINHA CONTA =====")
+        print(ciano("\n===== MINHA CONTA ====="))
         print("1 - Alterar username")
         print("2 - Alterar senha")
-        print("3 - Excluir conta")
-        print("0 - Voltar")
+        print(amarelo("3 - Excluir conta"))
+        print(vermelho("0 - Voltar"))
 
         op = input("Escolha: ")
 

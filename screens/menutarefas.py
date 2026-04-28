@@ -1,17 +1,17 @@
 from serv.todo import *
-from serv.utils import limpar_tela
+from serv.utils import *
 import time
 
 def menu_todo(user_id):
     '''Define a tela do menu de to-do list do usuário'''
     while True:
         limpar_tela()
-        print("\n===== To-Do =====")
+        print(ciano("\n===== To-Do ====="))
         print("1 - Criar tarefa")
         print("2 - Listar tarefas")
         print("3 - Concluir tarefa")
         print("4 - Excluir tarefa")
-        print("0 - Voltar ao menu principal")
+        print(vermelho("0 - Voltar ao menu principal"))
 
         op = input("Escolha: ")
 

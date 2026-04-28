@@ -1,17 +1,17 @@
 from serv.disciplinas import *
-from serv.utils import limpar_tela
+from serv.utils import *
 import time
 
 def menu_disciplinas(user_id):
     '''Define a tela do menu de disciplinas'''
     while True:
         limpar_tela()
-        print("\n===== Disciplinas =====")
+        print(ciano("\n===== Disciplinas ====="))
         print("1 - Criar disciplina")
         print("2 - Listar disciplinas")
         print("3 - Editar disciplina")
         print("4 - Excluir disciplina")
-        print("0 - Voltar ao menu principal")
+        print(vermelho("0 - Voltar ao menu principal"))
 
         op = input("Escolha: ")
 
