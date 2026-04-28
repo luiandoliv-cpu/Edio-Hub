@@ -53,14 +53,6 @@ def criar_tabelas():
         status TEXT NOT NULL DEFAULT 'Pendente'
     )""")
 
-    cursor.execute("""
-    CREATE TABLE IF NOT EXISTS anexos(
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        user_id INTEGER NOT NULL,
-        titulo TEXT NOT NULL,
-        mensagem TEXT NOT NULL
-    )""")
-
     conn.commit()
     conn.close()
 criar_tabelas()
