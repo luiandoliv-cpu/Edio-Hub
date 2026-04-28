@@ -20,7 +20,7 @@ def validar_cadastro(username, password):
     if len(username) < 5:
         return False, "Usuário precisa ter pelo menos 5 caracteres"
 
-    if len(password) < 4 or len(password) > 18:
+    if len(password) < 6 or len(password) > 18:
         return False, "Senha precisa ter pelo menos 6 caracteres e, no máximo, 18 caracteres"
     
     if not re.search(r"[A-Z]", password):
