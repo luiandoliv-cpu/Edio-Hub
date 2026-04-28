@@ -178,7 +178,7 @@ def listar_disciplinas(user_id):
     '''Lista disciplinas para escolha de disciplina ao temporizador'''
     conn = conexao()
     cur = conn.cursor()
-    cur.execute("SELECT id, nome FROM disciplinas WHERE user_id=?", (user_id,))
+    cur.execute("SELECT discip_id, nome FROM disciplinas WHERE user_id=?", (user_id,))
     dados = cur.fetchall()
     conn.close()
     return dados
