@@ -32,8 +32,8 @@ def menu_disciplinas(user_id):
             else:
                 for d in disciplinas:
                     print(f"{d[0]} - {d[1]}")
-                    input("\nPressione ENTER para voltar...")
-                    limpar_tela()
+                input("\nPressione ENTER para voltar...")
+                limpar_tela()
 
 
         elif op == "3":
@@ -47,7 +47,7 @@ def menu_disciplinas(user_id):
             for d in disciplinas:
                 print(f"{d[0]} - {d[1]}")
             
-            time.sleep(6)
+            input("ENTER....")
             limpar_tela()
             did = input("ID da disciplina: ")
             novo_nome = input("Novo nome: ")

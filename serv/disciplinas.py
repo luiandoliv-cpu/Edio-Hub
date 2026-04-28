@@ -44,7 +44,7 @@ def editar_disciplina(user_id, disciplina_id, novo_nome):
     cursor = conn.cursor()
 
     cursor.execute(
-        "UPDATE disciplinas SET nome = ? WHERE id = ? AND user_id = ?",
+        "UPDATE disciplinas SET nome = ? WHERE discip_id = ? AND user_id = ?",
         (novo_nome, disciplina_id, user_id)
     )
 
