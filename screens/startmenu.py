@@ -1,16 +1,16 @@
 from serv.auth import registrar_usuario, login_usuario
 from screens.menuprincip import menu_principal
 import time
-from serv.utils import limpar_tela, pausa_auto
+from serv.utils import *
 
 def tela_inicial():
 
     while True:
         limpar_tela()
-        print("\n===== Bem-vindo ao EdioHub =====")
-        print("1 - Criar conta")
-        print("2 - Entrar")
-        print("3 - Sair")
+        print(azul("\n===== Bem-vindo ao EdioHub ====="))
+        print(verde("1 - Criar conta"))
+        print(amarelo("2 - Entrar"))
+        print(vermelho("3 - Sair"))
 
         op = input("Escolha: ")
 
@@ -23,7 +23,7 @@ def tela_inicial():
             print(msg)
 
             if sucesso:
-              pausa_auto("Conta criada com sucesso!", 2)
+              pausa_auto(verde("Conta criada com sucesso!"), 2)
               return user_id
             else:
               time.sleep(2)
@@ -36,9 +36,10 @@ def tela_inicial():
             senha = input("Senha: ")
 
             sucesso, msg, user_id = login_usuario(username, senha)
+            print(msg)
 
             if sucesso:
-              pausa_auto("Login realizado com sucesso!", 2)
+              pausa_auto(verde("Login realizado com sucesso!"), 2)
               return user_id
             else:
                time.sleep(2)
@@ -46,12 +47,12 @@ def tela_inicial():
                continue
 
         elif op == "3":
-            print("Até logo!")
+            print(ciano("Até logo! :)"))
             time.sleep(1)
             limpar_tela()
             return "exit"       
 
         else:
-            print("Opção inválida")
+            print(amarelo("Opção inválida"))
             time.sleep(1)
             limpar_tela()

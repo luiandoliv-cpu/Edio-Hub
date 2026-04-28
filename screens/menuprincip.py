@@ -1,4 +1,4 @@
-from serv.utils import limpar_tela
+from serv.utils import *
 from screens.menudiscip import menu_disciplinas
 from screens.menutarefas import menu_todo
 from screens.menutempo import menu_temporizadores
@@ -13,16 +13,16 @@ def menu_principal(user_id):
     while True:
         hoje, streak, top = resumo_boas_vindas(user_id)
 
-        print("\n Bem-vindo!")
-        print(f"Hoje você estudou: {formatar(hoje)}")
-        print(f"Streak: {streak} dias 🔥")
+        print(azul("\n Bem-vindo!"))
+        print(verde(f"Hoje você estudou: {formatar(hoje)}"))
+        print(amarelo(f"Streak: {streak} dias 🔥"))
         print(f"Foco atual: {top or 'Escolha uma disciplina'}")
         print("1 - Disciplinas")
         print("2 - Temporizadores")
         print("3 - To-Do")
         print("4 - Estatatísticas")
         print("5 - Gerenciar conta")
-        print("0 - Logout")
+        print(vermelho("0 - Logout"))
     
         op = input("Escolha: ")
 
@@ -53,6 +53,6 @@ def menu_principal(user_id):
             return None
 
         else:
-            print("Opção inválida")
+            print(amarelo("Opção inválida"))
             time.sleep(2)
             limpar_tela()
