@@ -2,6 +2,7 @@ import sqlite3
 from serv.tables import conexao
 
 def criar_tarefa(user_id, descricao):
+    '''Criar tarefa na to-do list'''
     descricao = descricao.strip()
 
     if len(descricao) < 1:
@@ -21,6 +22,7 @@ def criar_tarefa(user_id, descricao):
     return True, "Tarefa criada com sucesso!"
 
 def listar_tarefas(user_id):
+    '''Buscar tarefas'''
     conn = conexao()
     cursor = conn.cursor()
 
@@ -35,6 +37,7 @@ def listar_tarefas(user_id):
     return tarefas
 
 def concluir_tarefa(user_id, tarefa_id):
+    '''Limpar tarefa concluída'''
     conn = conexao()
     cursor = conn.cursor()
 
@@ -49,9 +52,10 @@ def concluir_tarefa(user_id, tarefa_id):
 
     conn.commit()
     conn.close()
-    return True, "Tarefa concluída 🎉"
+    return True, "Tarefa concluída!"
 
 def excluir_tarefa(user_id, tarefa_id):
+    '''Excluir tarefa'''
     conn = conexao()
     cursor = conn.cursor()
 
@@ -69,6 +73,7 @@ def excluir_tarefa(user_id, tarefa_id):
     return True, "Tarefa excluída."
 
 def mostrar_tarefas(tarefas):
+    '''Listar tarefas buscadas'''
     if not tarefas:
         print("\nVocê não possui tarefas.")
         return False

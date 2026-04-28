@@ -2,6 +2,7 @@ import sqlite3
 from serv.tables import conexao
 
 def listar_disciplinas(user_id):
+    '''Lista disciplinas existentes'''
     conn = conexao()
     cursor = conn.cursor()
 
@@ -15,6 +16,7 @@ def listar_disciplinas(user_id):
     return disciplinas
 
 def criar_disciplina(user_id, nome):
+    '''Cria novas disciplinas no banco'''
     nome = nome.strip()
 
     if nome == "":
@@ -34,6 +36,7 @@ def criar_disciplina(user_id, nome):
     return True, "Disciplina criada com sucesso!"
 
 def editar_disciplina(user_id, disciplina_id, novo_nome):
+    '''Altera nome da disciplina'''
     if not novo_nome or novo_nome.strip() == "":
         return False, "Nome não pode ser vazio"
 
@@ -55,6 +58,7 @@ def editar_disciplina(user_id, disciplina_id, novo_nome):
     return True, "Disciplina atualizada!"
 
 def excluir_disciplina(user_id, disciplina_id):
+    '''Deleta disciplina e timers linkados à disciplina'''
     conn = conexao()
     cursor = conn.cursor()
 

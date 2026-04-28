@@ -3,6 +3,7 @@ from screens.startmenu import tela_inicial
 from screens.menuprincip import menu_principal
 
 def main():
+    '''Roda o programa (de acordo com presença ou ausência de sessão)'''
     while True:
         user_id = carregar_sessao()
 

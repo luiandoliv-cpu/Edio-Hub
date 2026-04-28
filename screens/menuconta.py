@@ -4,6 +4,7 @@ from serv.sessao import limpar_sessao
 import time
 
 def tela_conta(user_id):
+    '''Define a tela do menu de configurações de conta do usuário'''
     while True:
         limpar_tela()
         print("\n===== MINHA CONTA =====")

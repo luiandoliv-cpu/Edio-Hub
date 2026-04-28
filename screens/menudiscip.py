@@ -3,6 +3,7 @@ from serv.utils import limpar_tela
 import time
 
 def menu_disciplinas(user_id):
+    '''Define a tela do menu de disciplinas'''
     while True:
         limpar_tela()
         print("\n===== Disciplinas =====")

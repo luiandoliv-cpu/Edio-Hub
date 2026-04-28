@@ -4,6 +4,7 @@ import time
 from serv.utils import *
 
 def tela_inicial():
+    '''Define a tela do menu inicial'''
 
     while True:
         limpar_tela()

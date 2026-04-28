@@ -7,6 +7,7 @@ def formatar(minutos):
     return f"{h}h {m}min"
 
 def menu_estatisticas(user_id):
+    '''Define a tela do menu de estatísticas do usuário'''
     while True:
         limpar_tela()
         print("\n===== ESTATÍSTICAS =====")

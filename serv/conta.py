@@ -4,12 +4,14 @@ from serv.sessao import limpar_sessao
 import re
 
 def validar_username(username):
+    '''Valida características do novo username'''
     username = username.strip()
     if len(username) < 5:
         return False, "Username deve ter no mínimo 5 caracteres."
     return True, ""
 
 def validar_senha(senha):
+    '''Valida características da nova senha'''
     if len(senha) < 4 or len(senha) > 12:
         return False, "Senha deve ter entre 4 e 12 caracteres."
 
@@ -25,6 +27,7 @@ def validar_senha(senha):
     return True, ""
 
 def editar_username(user_id, novo_username, senha_atual):
+    '''Confirmação para troca de username'''
     conn = conexao()
     cur = conn.cursor()
 
@@ -54,6 +57,7 @@ def editar_username(user_id, novo_username, senha_atual):
         conn.close()
 
 def editar_senha(user_id, senha_atual, nova_senha):
+    '''Confirmação para troca de senha'''
     conn = conexao()
     cur = conn.cursor()
 
@@ -81,6 +85,7 @@ def editar_senha(user_id, senha_atual, nova_senha):
     return True, "Senha atualizada com sucesso!"
 
 def excluir_conta(user_id, senha_atual):
+    '''Confirmação para exclusão de conta'''
     conn = conexao()
     cur = conn.cursor()
 

@@ -4,6 +4,7 @@ from serv.utils import limpar_tela
 import time
 
 def menu_temporizadores(user_id):
+    '''Define a tela do menu de temporizadores do usuário'''
     while True:
         limpar_tela()
         print("\n===== Temporizadores =====")

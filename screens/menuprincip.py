@@ -9,6 +9,7 @@ from serv.estatisticas import resumo_boas_vindas
 import time
 
 def menu_principal(user_id):
+    '''Define a tela do menu principal do usuário'''
     while True:
         hoje, streak, top = resumo_boas_vindas(user_id)
 

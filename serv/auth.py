@@ -5,15 +5,18 @@ from serv.tables import conexao
 from serv.sessao import salvar_sessao
 
 def hash_senha(senha: str) -> bytes:
+    '''Define a hashificação de senha'''
     senha_bytes = senha.encode("utf-8")
     salt = bcrypt.gensalt()
     hashed = bcrypt.hashpw(senha_bytes, salt)
     return hashed
 
 def verificar_senha(senha_digitada: str, senha_hash: bytes) -> bool:
+    '''Verifica se a senha digitada no coincide com o hash de senha no login'''
     return bcrypt.checkpw(senha_digitada.encode("utf-8"), senha_hash)
 
 def validar_cadastro(username, password):
+    '''Define as validações de username e senha na criação de cadastro'''
     if len(username) < 5:
         return False, "Usuário precisa ter pelo menos 5 caracteres"
 
@@ -40,6 +43,7 @@ def validar_cadastro(username, password):
     return True, "OK"
 
 def registrar_usuario(username, password):
+    '''Etapa de validar a criação de conta do usuário'''
     valido, msg = validar_cadastro(username, password)
     if not valido:
         return False, msg, None
@@ -66,6 +70,7 @@ def registrar_usuario(username, password):
         conn.close()
 
 def login_usuario(username, password):
+    '''Etapa de validação de login em conta já existente pelo usuário'''
     conn = conexao()
     cursor = conn.cursor()
 

@@ -5,6 +5,7 @@ from serv.tables import conexao
 from serv.utils import limpar_tela
 
 def criar_temporizador(user_id, nome, discip_id, estudo, pausa):
+    '''Cria temporizador no banco'''
     nome = nome.strip()
 
     if len(nome) < 1:
@@ -33,6 +34,7 @@ def criar_temporizador(user_id, nome, discip_id, estudo, pausa):
     return True, "Temporizador criado!"
 
 def listar_temporizadores(user_id):
+    '''Lista temporizadores existentes'''
     conn = conexao()
     cursor = conn.cursor()
 
@@ -47,6 +49,7 @@ def listar_temporizadores(user_id):
     return timers
 
 def contagem_interrompivel(minutos):
+    '''Contagem da sessão de estudos'''
     total_segundos = minutos * 60
 
     print("\nPressione CTRL+C para encerrar.\n")
@@ -73,6 +76,7 @@ def contagem_interrompivel(minutos):
         return False
     
 def iniciar_temporizador(user_id, timer_id):
+    '''Iniciar temporizador'''
     conn = conexao()
     cursor = conn.cursor()
 
@@ -129,6 +133,7 @@ def iniciar_temporizador(user_id, timer_id):
     return True, f"Sessão encerrada! Você estudou {total_estudado} minutos 🎉"
 
 def editar_temporizador(user_id, timer_id, estudo, pausa):
+    '''Alterar características do temporizador'''
     if not estudo.isdigit() or int(estudo) <= 0:
         return False, "Tempo de estudo inválido."
 
@@ -152,6 +157,7 @@ def editar_temporizador(user_id, timer_id, estudo, pausa):
     return True, "Temporizador atualizado!"
 
 def excluir_temporizador(user_id, timer_id):
+    '''Apaga temporizador da conta'''
     conn = conexao()
     cursor = conn.cursor()
 
@@ -169,6 +175,7 @@ def excluir_temporizador(user_id, timer_id):
     return True, "Temporizador excluído!"
 
 def listar_disciplinas(user_id):
+    '''Lista disciplinas para escolha de disciplina ao temporizador'''
     conn = conexao()
     cur = conn.cursor()
     cur.execute("SELECT id, nome FROM disciplinas WHERE user_id=?", (user_id,))
@@ -177,6 +184,7 @@ def listar_disciplinas(user_id):
     return dados
 
 def salvar_sessao(user_id, timer_id, tempo_estudado):
+    '''Salva sessões de estudos e suas durações'''
     conn = conexao()
     cursor = conn.cursor()
 

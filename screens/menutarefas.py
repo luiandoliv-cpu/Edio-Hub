@@ -3,6 +3,7 @@ from serv.utils import limpar_tela
 import time
 
 def menu_todo(user_id):
+    '''Define a tela do menu de to-do list do usuário'''
     while True:
         limpar_tela()
         print("\n===== To-Do =====")

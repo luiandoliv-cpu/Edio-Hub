@@ -2,6 +2,7 @@ from serv.tables import conexao
 from datetime import date
 
 def tempo_total(user_id):
+    '''Define todo o tempo estudado pelo usuário'''
     conn = conexao()
     cur = conn.cursor()
 
@@ -17,6 +18,7 @@ def tempo_total(user_id):
     return total or 0
 
 def tempo_hoje(user_id):
+    '''Define tempo total estudado no dia'''
     hoje = date.today().isoformat()
 
     conn = conexao()
@@ -34,6 +36,7 @@ def tempo_hoje(user_id):
     return total or 0
 
 def tempo_por_disciplina(user_id):
+    '''Define tempo total estudado de disciplinas'''
     conn = conexao()
     cur = conn.cursor()
 
@@ -52,12 +55,14 @@ def tempo_por_disciplina(user_id):
     return dados
 
 def disciplina_top(user_id):
+    '''Define disciplina mais estudada'''
     dados = tempo_por_disciplina(user_id)
     if not dados:
         return None
     return dados[0][0]
 
 def streak_estudo(user_id):
+    '''Define sequência de dias seguidos estudados'''
     conn = conexao()
     cur = conn.cursor()
 

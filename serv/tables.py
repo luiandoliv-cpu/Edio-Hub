@@ -1,9 +1,11 @@
 import sqlite3
 
 def conexao():
+    '''Faz conexão com o banco'''
     return sqlite3.connect("accko.db")
 
 def criar_tabelas():
+    '''Cria tabelas do banco'''
     conn = conexao()
     cursor = conn.cursor()
 
