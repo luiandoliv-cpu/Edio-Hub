@@ -50,3 +50,8 @@ def tela_conta(user_id):
         elif op == "0":
            limpar_tela()
            break
+
+        else:
+           print("Opção Inválida")
+           time.sleep(2)
+           limpar_tela()

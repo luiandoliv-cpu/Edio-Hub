@@ -51,7 +51,6 @@ def criar_tabelas():
         user_id INTEGER,
         descricao TEXT NOT NULL,
         status TEXT NOT NULL DEFAULT 'Pendente'
-        ORDER BY status, id
     )""")
 
     cursor.execute("""
