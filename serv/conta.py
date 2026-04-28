@@ -99,5 +99,5 @@ def excluir_conta(user_id, senha_atual):
     conn.commit()
     conn.close()
 
-    limpar_sessao()  # 👈 importante
+    limpar_sessao() 
     return True, "Conta excluída com sucesso", True

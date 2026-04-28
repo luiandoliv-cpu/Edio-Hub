@@ -4,9 +4,6 @@ import sqlite3
 from serv.tables import conexao
 from serv.sessao import salvar_sessao
 
-def conexao():
-    return sqlite3.connect("accko.db")
-
 def hash_senha(senha: str) -> bytes:
     senha_bytes = senha.encode("utf-8")
     salt = bcrypt.gensalt()
