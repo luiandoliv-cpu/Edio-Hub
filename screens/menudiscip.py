@@ -66,7 +66,7 @@ def menu_disciplinas(user_id):
                 print(f"{d[0]} - {d[1]}")
 
             
-            did = input("ID da disciplina: ")
+            did = input("ID da disciplina (os temporizadores ligados a esta disciplina também serão excluídos): ")
             sucesso, msg = excluir_disciplina(user_id, did)
             print(msg)
             time.sleep(3)

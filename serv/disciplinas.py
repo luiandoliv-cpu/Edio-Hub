@@ -58,15 +58,18 @@ def excluir_disciplina(user_id, disciplina_id):
     conn = conexao()
     cursor = conn.cursor()
 
-    # remove disciplina
     cursor.execute(
         "DELETE FROM disciplinas WHERE discip_id = ? AND user_id = ?",
         (disciplina_id, user_id)
     )
-
     if cursor.rowcount == 0:
         conn.close()
         return False, "Disciplina não encontrada."
+    
+    cursor.execute(
+        "DELETE FROM temporizadores WHERE discip_id = ?",
+        (disciplina_id,)
+        )
 
     conn.commit()
     conn.close()

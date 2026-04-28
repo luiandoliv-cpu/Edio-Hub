@@ -2,7 +2,6 @@ from serv.utils import *
 from screens.menudiscip import menu_disciplinas
 from screens.menutarefas import menu_todo
 from screens.menutempo import menu_temporizadores
-from screens.menuanex import menu_mural
 from screens.menuestat import menu_estatisticas, formatar
 from screens.menuconta import tela_conta
 from serv.sessao import limpar_sessao
