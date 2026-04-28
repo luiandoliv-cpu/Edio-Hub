@@ -7,7 +7,7 @@ def tela_inicial():
 
     while True:
         limpar_tela()
-        print(azul("\n===== Bem-vindo ao EdioHub ====="))
+        print(azul("\n===== Bem-vindo ao EdioHub! ====="))
         print(verde("1 - Criar conta"))
         print(amarelo("2 - Entrar"))
         print(vermelho("3 - Sair"))
