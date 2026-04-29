@@ -53,12 +53,13 @@ O foco do projeto é aplicar conceitos de:
   
 ---
 
-# 🛠️ Tecnologias utilizadas
+# 🛠️ Tecnologias e bibliotecas utilizadas
 
-- Python 3  
-- SQLite3  
-- Bcrypt  
-- Programação modular  
+- Python 3.14.3
+- SQLite3 para databse
+- Bcrypt(não-padrão) para hashing de senhas
+- Time para contagens
+- Datetime para datas de tempo
 
 ---
 
