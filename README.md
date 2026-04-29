@@ -24,7 +24,7 @@ O foco do projeto é aplicar conceitos de:
 
 ---
 
-# 🚀 Funcionalidades
+# 🚀 Funcionalidades - 1VA
 
 ## 🔐 Sistema de usuários
 - Cadastro de conta  
@@ -35,6 +35,21 @@ O foco do projeto é aplicar conceitos de:
 - Registro de tempo estudado  
 - Estatísticas por disciplina
 - Sistema de to-do list  
+
+# 🚀 Funcionalidades - 2VA (WIP e sujeitas a alteração)
+- Criação de perfil pessoal
+- Objetivos (metas)
+- Caminhos (guia)
+- Anexos
+- Notificações internas
+
+# 🚀 Funcionalidades - 3VA (WIP e sujeitas a alteração)
+- Grupos com fóruns
+- Amizades com streak em dupla
+- Conquistas expostas no perfil
+- Gavetas para organizar e guardar materiais e links
+- Filtros de materiais favoritos
+
   
 ---
 
@@ -103,5 +118,6 @@ Projeto desenvolvido como atividade prática da disciplina **PISI1**, com foco e
 
 Desenvolvido por **Paulo Andrey**  
 GitHub: https://github.com/luiandoliv-cpu
+Fluxogramas: https://drive.google.com/drive/u/1/folders/1DZnUJMzX-PRPePyKETu32PQV0rnlwSg2
 
 ---
