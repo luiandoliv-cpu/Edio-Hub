@@ -101,7 +101,7 @@ def iniciar_temporizador(user_id, timer_id):
     total_estudado = 0
 
     print("\n Temporizador iniciado!")
-    print("CTRL+C para encerrar a qualquer momento.")
+    print("CTRL+C para encerrar a qualquer momento. (Apenas as sessões completas serão contabilizadas!)")
 
     try:
         while True:
